@@ -112,13 +112,18 @@ async function requireAuth(request, env) {
 // Menggunakan endpoint tokeninfo Google (cukup untuk skala kecil-menengah,
 // tanpa perlu implementasi verifikasi JWK/RS256 manual di Worker).
 async function verifyGoogleIdToken(idToken, googleClientId) {
+  const expectedClientId = String(googleClientId || "").trim();
+  if (!expectedClientId) {
+    throw new Error(
+      "GOOGLE_CLIENT_ID belum di-set di Worker ini (env kosong). Jalankan: wrangler secret put GOOGLE_CLIENT_ID"
+    );
+  }
   const resp = await fetch(
     `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(idToken)}`
   );
   if (!resp.ok) throw new Error("Token Google tidak valid");
   const data = await resp.json();
   const tokenAud = String(data.aud || "").trim();
-  const expectedClientId = String(googleClientId || "").trim();
   if (tokenAud !== expectedClientId) {
     throw new Error(
       `Client ID tidak cocok (aud token: "${tokenAud.slice(0, 12)}...", diharapkan: "${expectedClientId.slice(0, 12)}...")`
