@@ -1,0 +1,20 @@
+name = "ebook-donatjs-api"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# Ganti dengan account_id milikmu (opsional jika sudah login via wrangler)
+# account_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ebook-donatjs-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# Set via: wrangler secret put JWT_SECRET
+# Set via: wrangler secret put GOOGLE_CLIENT_ID
+[vars]
+# Non-secret vars boleh taruh di sini, contoh:
+ALLOWED_ORIGIN = "https://sismadi.github.io"
+
+[observability]
+enabled = true
