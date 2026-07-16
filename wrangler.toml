@@ -7,8 +7,8 @@ compatibility_date = "2026-01-01"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "ebook-donatjs-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_name = "db-bukugue"
+database_id = "22f2a65c-8d56-4e50-ac8d-90c7e6a63e4a"
 
 # Set via: wrangler secret put JWT_SECRET
 # Set via: wrangler secret put GOOGLE_CLIENT_ID
