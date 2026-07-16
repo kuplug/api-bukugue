@@ -14,7 +14,7 @@ database_id = "22f2a65c-8d56-4e50-ac8d-90c7e6a63e4a"
 # Set via: wrangler secret put GOOGLE_CLIENT_ID
 [vars]
 # Non-secret vars boleh taruh di sini, contoh:
-ALLOWED_ORIGIN = "https://sismadi.github.io"
+ALLOWED_ORIGIN = "https://kuplug.github.io"
 
 [observability]
 enabled = true
